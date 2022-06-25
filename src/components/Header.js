@@ -5,15 +5,16 @@ import { useContext } from "react";
 import UserContext from "../contexts/UserContext";
 
 const Header = ({ title, onShow, showAddTask }) => {
-  const [flag, setFlag] = useContext(UserContext);
-  // const [show, setShow] = useContext(UserContext);
   // const location = useLocation();
+  const { flag, show } = useContext(UserContext);
+  const [flagValue, setFlagValue] = flag;
+  const [showValue, setShowValue] = show;
 
   return (
     <header className="header">
       <h1>{title}</h1>
       {/* {location.pathname === "/" && ( */}
-      {flag && (
+      {showValue && (
         <Button
           color={showAddTask ? "red" : "green"}
           text={showAddTask ? "Close" : "Add"}

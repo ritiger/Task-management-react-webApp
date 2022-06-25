@@ -3,18 +3,19 @@ import UserContext from "../contexts/UserContext";
 // import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const [flag, setFlag] = useContext(UserContext);
-  // const [show, setShow] = useContext(UserContext);
+  const { flag, show } = useContext(UserContext);
+  const [flagValue, setFlagValue] = flag;
+  const [showValue, setShowValue] = show;
 
   return (
     <footer>
       <p>Copyright &copy;2022</p>
       <div
         style={{ cursor: "pointer" }}
-        onClick={
-          () => setFlag(false)
-          // setShow(true);
-        }
+        onClick={() => {
+          setFlagValue(false);
+          setShowValue(false);
+        }}
       >
         About
       </div>

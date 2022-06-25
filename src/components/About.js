@@ -3,12 +3,13 @@ import { useContext } from "react";
 import UserContext from "../contexts/UserContext";
 
 const About = () => {
-  const [flag, setFlag] = useContext(UserContext);
-  // const [show, setShow] = useContext(UserContext);
+  const { flag, show } = useContext(UserContext);
+  const [flagValue, setFlagValue] = flag;
+  const [showValue, setShowValue] = show;
 
   // const clickHandler = () => {
-  //   setFlag(true);
-  //   setShow(true);
+  //   setFlagValue(true);
+  //   setShowValue(true);
   // };
 
   return (
@@ -16,10 +17,10 @@ const About = () => {
       <h4>Version 1.0.0</h4>
       <div
         style={{ cursor: "pointer" }}
-        onClick={
-          () => setFlag(true)
-          // setShow(true);
-        }
+        onClick={() => {
+          setFlagValue(true);
+          setShowValue(true);
+        }}
       >
         Go Back
       </div>
