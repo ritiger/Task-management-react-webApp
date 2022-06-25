@@ -1,28 +1,49 @@
-import { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Home from "./components/Home";
-import About from "./components/About";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Management from "./components/Management";
+import Services from "./components/Services";
+import LogoImage from "./components/LogoImage";
 
 const App = () => {
-  const [showAddTask, setShowAddTask] = useState(false);
-
   return (
-    <Router>
-      <div className="container">
-        <Header
-          onShow={() => setShowAddTask(!showAddTask)}
-          showAddTask={showAddTask}
-        />
-        <Routes>
-          <Route exact path="/" element={<Home showAddTask={showAddTask} />} />
-          <Route exact path="/about" element={<About />} />
-        </Routes>
-
-        <Footer />
+    <BrowserRouter>
+      <div id="main-header">
+        <div className="main-header-container">
+          <LogoImage />
+          <h1 style={{ marginLeft: "15px" }}>My Practice Website</h1>
+        </div>
       </div>
-    </Router>
+      <nav id="navbar">
+        <div className="main-container">
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/">About</a>
+            </li>
+            <li>
+              <a href="/services">Services</a>
+            </li>
+            <li>
+              <a href="/">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div className="goto">
+        <a href="/">Hello</a>
+      </div>
+
+      <Routes>
+        <Route exact path="/" element={<Management />} />
+        <Route exact path="/services" element={<Services />} />
+      </Routes>
+
+      <footer id="main-footer">
+        <p>Copyright &copy;2022 By RCH</p>
+      </footer>
+    </BrowserRouter>
   );
 };
 
