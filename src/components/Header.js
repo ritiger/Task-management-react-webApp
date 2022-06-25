@@ -1,20 +1,26 @@
 import PropTypes from "prop-types";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import Button from "./Button";
+import { useContext } from "react";
+import UserContext from "../contexts/UserContext";
 
 const Header = ({ title, onShow, showAddTask }) => {
-  const location = useLocation();
+  const [flag, setFlag] = useContext(UserContext);
+  // const [show, setShow] = useContext(UserContext);
+  // const location = useLocation();
 
   return (
     <header className="header">
       <h1>{title}</h1>
-      {location.pathname === "/" && (
+      {/* {location.pathname === "/" && ( */}
+      {flag && (
         <Button
           color={showAddTask ? "red" : "green"}
           text={showAddTask ? "Close" : "Add"}
           onClick={onShow}
         />
       )}
+      {/* )} */}
     </header>
   );
 };
