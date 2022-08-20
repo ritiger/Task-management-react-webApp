@@ -42,8 +42,7 @@ const About = () => {
   } = useContext(UserContext);
 
   const clickHandler = () => {
-    dispatch({ flag: true });
-    dispatch({ show: true });
+    dispatch({ flag: true, show: true });
   };
 
   return (

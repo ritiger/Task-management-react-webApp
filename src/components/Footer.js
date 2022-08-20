@@ -38,8 +38,9 @@ const Footer = () => {
   } = useContext(UserContext);
 
   const clickHandler = () => {
-    dispatch({ flag: false });
-    dispatch({ show: false });
+    dispatch({ flag: false, show: false });
+    // dispatch({ flag: false });
+    // dispatch({ show: false });
   };
 
   return (
